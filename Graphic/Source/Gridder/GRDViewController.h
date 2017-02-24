@@ -1,0 +1,51 @@
+//
+//  GRDViewController.h
+//  Gridder
+//
+//  Created by Joshua James on 10/07/13.
+//  Copyright (c) 2013 Joshua James. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "GRDSquare.h"
+#import "GRDAppDelegate.h"
+#import "GRDCore.h"
+#import "GRDGlassSquare.h"
+
+@class GRDAppDelegate;
+
+@interface GRDViewController : UIViewController {
+	NSInteger glassLevel;
+	GRDAppDelegate *delegate;
+	UIProgressView *pulseBar;
+}
+
+@property (strong, nonatomic) IBOutlet UIView *greaterGrid;
+@property (strong, nonatomic) IBOutlet UIView *lesserGrid;
+@property (nonatomic, strong) NSMutableArray *lesserGridCollection;
+@property (nonatomic, strong) NSMutableArray *greaterGridCollection;
+
+@property (strong, nonatomic) IBOutlet UIButton *pauseMenuButton;
+@property (strong, nonatomic) IBOutlet UIButton *soundOffButton;
+@property (strong, nonatomic) IBOutlet UIButton *pauseButton;
+@property (strong, nonatomic) IBOutlet UIView *topComponentsHolder;
+
+@property (nonatomic, strong) UIProgressView *progressView;
+
+
+@property (nonatomic, strong) NSMutableArray *glassSquares;
+@property (strong, nonatomic) UIView *transitionView;
+@property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (strong, nonatomic) IBOutlet UILabel *livesDisplay;
+@property (nonatomic) NSInteger onTheEdgeStreak;
+
+- (void)squareTouched:(UIGestureRecognizer *)sender;
+- (void)gridderPulse:(BOOL)successful;
+
+- (IBAction)returnToMenu:(id)sender;
+- (IBAction)soundButtonTouched:(id)sender;
+- (IBAction)pauseButtonTouched:(id)sender;
+- (IBAction)touchSquare:(id)sender;
+- (void)checkForAchievements;
+
+@end
